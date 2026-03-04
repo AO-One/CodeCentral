@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="indexstylesheet.css">
+    <title>CodeCentral | SLL Core Logic</title>
+    </head>
+<body>
+
+<canvas id="logic-matrix"></canvas>
+
+<header>
+    <div class="hub-title">CODE_CENTRAL_v1.0</div>
+    <div style="font-size: 0.8rem; color: var(--logic-blue);">UPTIME: 147:22:04</div>
+</header>
+
+<div class="container">
+    <div class="panel">
+        <div class="panel-header">SLL_WORKFORCE_ACTIVE</div>
+        <div class="log-stream">
+            <div class="log-entry"><span class="timestamp">[01]</span>Agent_Dev: STABLE</div>
+            <div class="log-entry"><span class="timestamp">[02]</span>Agent_Sec: SHIELDED</div>
+            <div class="log-entry"><span class="timestamp">[03]</span>Agent_Log: COMPUTING</div>
+            <div class="log-entry"><span class="timestamp">[04]</span>Agent_Vis: RENDERING</div>
+            <div class="log-entry" style="opacity: 0.5;">[... 26 AGENTS PENDING]</div>
+        </div>
+    </div>
+
+    <div class="core-display">
+        <div class="big-text">CENTRAL_LOGIC</div>
+        <div class="subtitle">ONEOS ARCHITECTURAL HUB</div>
+    </div>
+
+    <div class="panel">
+        <div class="panel-header">SYSTEM_LIVE_LOGS</div>
+        <div class="log-stream">
+            <div class="log-entry">> Initializing OneOS Core...</div>
+            <div class="log-entry">> Memory Adaptation: 8GB MODE</div>
+            <div class="log-entry">> VNC Bridge: ESTABLISHED</div>
+            <div class="log-entry" style="color: var(--matrix-green);">> Handshake with Gemini... OK</div>
+        </div>
+    </div>
+</div>
+
+<script>
+    const canvas = document.getElementById('logic-matrix');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const chars = "01ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+    const drops = [];
+
+    for (let x = 0; x < columns; x++) drops[x] = 1;
+
+    function draw() {
+        ctx.fillStyle = "rgba(1, 1, 3, 0.05)";
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        ctx.fillStyle = "#00ffcc";
+        ctx.font = fontSize + "px monospace";
+
+        for (let i = 0; i < drops.length; i++) {
+            const text = chars.charAt(Math.floor(Math.random() * chars.length));
+            ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+            if (drops[i] * fontSize > canvas.height && Math.random() > 0.975)
+                drops[i] = 0;
+
+            drops[i]++;
+        }
+    }
+
+    setInterval(draw, 35);
+</script>
+
+</body>
+</html>

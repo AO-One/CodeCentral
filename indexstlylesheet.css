@@ -1,0 +1,100 @@
+:root {
+            --matrix-green: #00ffcc;
+            --logic-blue: #0088ff;
+            --dark-core: #010103;
+            --glass-border: rgba(0, 255, 204, 0.3);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--dark-core);
+            color: #e0e0e0;
+            font-family: 'Fira Code', 'Courier New', monospace;
+            overflow: hidden;
+        }
+
+        canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            opacity: 0.4;
+        }
+
+        /* --- Header Navigation --- */
+        header {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--glass-border);
+            background: rgba(1, 1, 3, 0.8);
+            backdrop-filter: blur(10px);
+        }
+
+        .hub-title {
+            font-size: 1.2rem;
+            letter-spacing: 3px;
+            color: var(--matrix-green);
+            font-weight: bold;
+        }
+
+        /* --- Main Logic Grid --- */
+        .container {
+            display: grid;
+            grid-template-columns: 300px 1fr 300px;
+            gap: 20px;
+            padding: 40px;
+            height: calc(100vh - 80px);
+        }
+
+        .panel {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--glass-border);
+            border-radius: 5px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .panel-header {
+            color: var(--matrix-green);
+            font-size: 0.8rem;
+            margin-bottom: 15px;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 5px;
+            text-transform: uppercase;
+        }
+
+        /* --- Log Text --- */
+        .log-stream {
+            font-size: 0.85rem;
+            line-height: 1.5;
+            color: #88ffcc;
+            overflow-y: auto;
+        }
+
+        .log-entry { margin-bottom: 10px; }
+        .timestamp { color: var(--logic-blue); margin-right: 10px; }
+
+        /* --- Central Core --- */
+        .core-display {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .big-text {
+            font-size: 3rem;
+            color: white;
+            text-shadow: 0 0 20px var(--matrix-green);
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: var(--logic-blue);
+            letter-spacing: 5px;
+        }
