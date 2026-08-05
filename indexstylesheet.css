@@ -3,6 +3,8 @@
     --logic-blue: #0088ff;
     --dark-core: #010103;
     --glass-border: rgba(0, 255, 204, 0.3);
+    --glow-cyan: #00ffff;
+    --bg-dark-panel: rgba(1, 1, 3, 0.85);
 }
 
 * { 
@@ -124,36 +126,32 @@ header {
     text-transform: uppercase;
 }
 
-.language-grid {
-    display: grid;
-    /* Uses auto-fit with minmax so longer names like C++ or JavaScript never overflow or distort */
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 12px;
-    max-height: 50vh;
-    overflow-y: auto;
-    padding: 5px;
-}
-
 .lang-card {
-    background: rgba(0, 255, 204, 0.05);
-    border: 1px solid var(--glass-border);
-    color: #e0e0e0;
-    padding: 10px 8px; /* Slightly reduced horizontal padding */
-    font-family: inherit;
-    font-size: 0.85rem;
-    cursor: pointer;
-    border-radius: 4px;
-    transition: all 0.2s ease-in-out;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    white-space: nowrap; /* Prevents symbols like ++ from dropping to a second line */
-    text-align: center;
+  background: var(--bg-dark-panel); /* Darker panel background for better contrast */
+  color: #e0e0e0;
+  padding: 10px 8px; 
+  font-family: inherit;
+  font-size: 0.85rem;
+  cursor: pointer;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  white-space: nowrap; 
+  text-align: center;
+
+  /* Apply the glowing cyan theme */
+  border: 1px solid var(--glass-border); /* Start with the existing glass border */
+  text-shadow: 0 0 5px var(--glow-cyan); /* Add a subtle glow to the text */
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2); /* Add a faint glow around the card */
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
 }
 
 .lang-card:hover {
-    background: rgba(0, 255, 204, 0.2);
-    border-color: var(--matrix-green);
-    color: #ffffff;
-    box-shadow: 0 0 10px rgba(0, 255, 204, 0.4);
-    transform: translateY(-2px);
+  /* Enhance the glowing effect on hover */
+  background: rgba(0, 255, 255, 0.1); /* Subtle cyan background tint on hover */
+  border-color: var(--glow-cyan); /* Bright cyan border on hover */
+  color: #ffffff;
+  text-shadow: 0 0 10px var(--glow-cyan); /* Stronger text glow on hover */
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.5); /* Stronger glow around the card on hover */
+  transform: translateY(-3px); /* Lift the card slightly more on hover */
 }
