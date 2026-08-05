@@ -126,7 +126,8 @@ header {
 
 .language-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    /* Uses auto-fit with minmax so longer names like C++ or JavaScript never overflow or distort */
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 12px;
     max-height: 50vh;
     overflow-y: auto;
@@ -137,7 +138,7 @@ header {
     background: rgba(0, 255, 204, 0.05);
     border: 1px solid var(--glass-border);
     color: #e0e0e0;
-    padding: 10px 15px;
+    padding: 10px 8px; /* Slightly reduced horizontal padding */
     font-family: inherit;
     font-size: 0.85rem;
     cursor: pointer;
@@ -145,6 +146,8 @@ header {
     transition: all 0.2s ease-in-out;
     text-transform: uppercase;
     letter-spacing: 1px;
+    white-space: nowrap; /* Prevents symbols like ++ from dropping to a second line */
+    text-align: center;
 }
 
 .lang-card:hover {
