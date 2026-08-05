@@ -1,26 +1,29 @@
 :root {
-            --matrix-green: #00ffcc;
-            --logic-blue: #0088ff;
-            --dark-core: #010103;
-            --glass-border: rgba(0, 255, 204, 0.3);
-        }
+   --matrix-green:#00ffcc;
+   --logic-blue:#0088ff;
+   --dark-core:#010103;
+   --glass-border:rgba(0, 255, 204, 0.3);
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+}
 
-        body {
-            background-color: var(--dark-core);
-            color: #e0e0e0;
-            font-family: 'Fira Code', 'Courier New', monospace;
-            overflow: hidden;
-        }
+* { margin:0; padding:0; box-sizing: border-box; }
 
-        canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: -1;
-            opacity: 0.4;
-        }
+body {
+    background-color:var(--dark-core);
+    color:#e0e0e0;
+    font-family:'Fira Code', 'Courier New', monospace;
+    overflow:hidden;
+        
+}
+
+canvas {
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:-1;
+    opacity:0.4;
+            
+}
 
         /* --- Header Navigation --- */
         header {
@@ -39,6 +42,53 @@
             color: var(--matrix-green);
             font-weight: bold;
         }
+
+/* --- Start Learning Section --- */
+.learning-container {
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 650px;
+}
+
+.section-title {
+    color: var(--matrix-green);
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+.language-grid {
+    display:grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap:12px;
+    max-height:50vh;
+    overflow-y:auto;
+    padding:5px;
+            
+}
+
+.lang-card {
+    background: rgba(0, 255, 204, 0.05);
+    border: 1px solid var(--glass-border);
+    color: #e0e0e0;
+    padding: 10px 15px;
+    font-family: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.lang-card:hover {
+    background: rgba(0, 255, 204, 0.2);
+    border-color: var(--matrix-green);
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.4);
+    transform: translateY(-2px);
+}
 
         /* --- Main Logic Grid --- */
         .container {
